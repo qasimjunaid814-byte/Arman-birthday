@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Arman 🎂</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:system-ui,-apple-system,Segoe UI,sans-serif}
+body{
+  overflow-x:hidden;
+  background:radial-gradient(circle at top,#3b176b 0,#170d35 45%,#080518 100%);
+  color:#fff;text-align:center;
+}
+.wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:25px 16px;position:relative}
+.card{
+  width:min(520px,100%);padding:34px 24px;border:1px solid rgba(255,255,255,.18);
+  border-radius:28px;background:rgba(255,255,255,.09);backdrop-filter:blur(12px);
+  box-shadow:0 20px 70px rgba(0,0,0,.4);position:relative;z-index:3;
+}
+.badge{display:inline-block;padding:7px 14px;border-radius:99px;background:rgba(255,255,255,.12);font-size:13px}
+h1{font-size:clamp(38px,11vw,64px);margin:18px 0 8px;line-height:1.05}
+.name{background:linear-gradient(90deg,#ffd86b,#fff,#ff9de6);-webkit-background-clip:text;color:transparent}
+.sub{font-size:18px;opacity:.9;line-height:1.6}
+button{
+  border:0;border-radius:999px;padding:15px 25px;margin-top:18px;font-size:16px;font-weight:800;
+  color:#24112f;background:linear-gradient(90deg,#ffd86b,#ff9de6);cursor:pointer;
+  box-shadow:0 8px 30px rgba(255,150,220,.25);
+}
+button:active{transform:scale(.97)}
+#surprise{display:none;margin-top:26px;animation:rise .7s ease}
+.message{padding:20px;border-radius:20px;background:rgba(0,0,0,.18);line-height:1.8;font-size:17px}
+.footer{margin-top:20px;font-size:12px;opacity:.55}
+.balloon{position:fixed;bottom:-130px;font-size:55px;z-index:1;animation:float 9s linear infinite}
+.b1{left:7%;animation-delay:0s}.b2{left:27%;animation-delay:2s}.b3{left:52%;animation-delay:4s}.b4{left:78%;animation-delay:1s}
+.spark{position:fixed;top:12%;font-size:25px;animation:twinkle 2s infinite alternate;z-index:1}
+.s1{left:12%}.s2{right:12%;animation-delay:.7s}.s3{left:45%;top:8%;animation-delay:1.2s}
+@keyframes float{to{transform:translateY(-125vh) rotate(12deg)}}
+@keyframes twinkle{from{opacity:.25;transform:scale(.8)}to{opacity:1;transform:scale(1.2)}}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.confetti{position:fixed;width:8px;height:14px;top:-20px;z-index:10;animation:fall 3.5s linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:.1}}
+.hidden{display:none}
+.small{font-size:14px;opacity:.7;margin-top:12px}
+</style>
+</head>
+<body>
+<div class="spark s1">✨</div><div class="spark s2">✨</div><div class="spark s3">⭐</div>
+<div class="balloon b1">🎈</div><div class="balloon b2">🎈</div>
+<div class="balloon b3">🎈</div><div class="balloon b4">🎈</div>
+
+<main class="wrap">
+<section class="card">
+  <div class="badge">🎁 A little surprise for you</div>
+  <h1>Happy Birthday<br><span class="name">Arman</span> 🎂</h1>
+  <p class="sub">Today is your special day — <b>4 October</b>! 🥳</p>
+  <button id="btn" onclick="showSurprise()">🎁 Open Your Surprise</button>
+
+  <div id="surprise">
+    <div class="message">
+      <div style="font-size:38px">🎉🎂❤️✨</div>
+      <p><b>Dear Arman,</b></p>
+      <p>Happy Birthday! 🥳 May your day be filled with happiness, laughter, success and lots of amazing memories.</p>
+      <p>Stay happy, keep smiling, and may all your good wishes come true! 🤲✨</p>
+      <p><b>Have an awesome birthday! 🎂🎁</b></p>
+      <div style="font-size:30px">🥳🎈🎊💫</div>
+    </div>
+    <p class="small">Made especially for Arman ❤️</p>
+  </div>
+  <div class="footer">4 October • Birthday Surprise</div>
+</section>
+</main>
+
+<script>
+function showSurprise(){
+  document.getElementById('surprise').style.display='block';
+  document.getElementById('btn').textContent='🎉 Surprise Opened!';
+  document.getElementById('btn').disabled=true;
+  confetti();
+}
+function confetti(){
+  const symbols=['🎉','✨','🎊','💖','⭐','🎈'];
+  for(let i=0;i<55;i++){
+    const c=document.createElement('div');
+    c.className='confetti';
+    c.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+    c.style.left=Math.random()*100+'vw';
+    c.style.fontSize=(12+Math.random()*18)+'px';
+    c.style.animationDelay=(Math.random()*1.5)+'s';
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),5000);
+  }
+}
+</script>
+</body>
+</html>
